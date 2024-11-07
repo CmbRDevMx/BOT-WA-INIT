@@ -13,6 +13,11 @@ Descarga e instala **NVM** para gestionar versiones de Node.js:
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 ```
+### ENTERATE DE LAS NUEVAS VERSIONES AQUI DE NVM: 
+https://github.com/nvm-sh/nvm/releases.
+Donde si hay una nueva solo cambiaras el numero de la version del comando que en el caso anterior es:[ v0.40.1](https://github.com/nvm-sh/nvm/releases)
+________________________________________________
+
 Verifica que **NVM** se instaló correctamente:
 ```bash
 nvm --version
