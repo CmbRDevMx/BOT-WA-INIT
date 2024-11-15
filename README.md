@@ -93,4 +93,53 @@ espera a que acabe la instalacion este puede tardar
 
 4 REALIZA LA EJECUCION
 
-pnpm run dev o pnpm start
+pnpm run dev o pnpm startstart
+
+## TERMUX SIN DISTRO PD
+Este error de `.netrc parser` en Termux generalmente ocurre debido a un problema con la configuración del archivo `.netrc`. Aquí tienes unos pasos para resolver este problema y proceder con la instalación de NVM:
+
+### 1. Verificar y corregir el archivo `.netrc`
+
+El archivo `.netrc` almacena credenciales de autenticación y configuración de red. Vamos a comprobar si existe y si tiene un formato válido:
+
+1. **Verifica si existe el archivo `.netrc`:**
+
+   ```bash
+   ls -a ~ | grep .netrc
+   ```
+
+2. **Edita o elimina el archivo `.netrc` si existe:** 
+
+   Si el archivo `.netrc` está presente y contiene configuraciones incorrectas, edítalo o renómbralo:
+
+   ```bash
+   mv ~/.netrc ~/.netrc_backup
+   ```
+
+   Esto renombrará el archivo, evitando que cause problemas sin eliminarlo permanentemente.
+
+### 2. Intentar nuevamente la instalación de NVM
+
+Una vez que hayas renombrado o corregido el archivo `.netrc`, vuelve a ejecutar el comando de instalación de NVM:
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+```
+
+### 3. Proceder con la configuración
+
+Si la descarga e instalación funcionan esta vez, continúa con los pasos de configuración de NVM mencionados anteriormente para que se cargue en cada nueva sesión de Termux:
+
+```bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+```
+
+Luego, recarga la configuración de tu shell y verifica la instalación:
+
+```bash
+source ~/.bashrc
+nvm --version
+```
+
+Esto debería resolver el problema del `.netrc` y permitir la instalación adecuada de NVM en Termux.
